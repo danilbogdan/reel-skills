@@ -1,6 +1,6 @@
 # Conventions (for the maintainer)
 
-Every skill here must be useful to a stranger who clones the repo, and safe to publish. The same layout and frontmatter as the private skills repo, so skills can be exported across.
+Every skill here must be useful to a stranger who clones the repo, and safe to publish. Layout and frontmatter follow the common agent-skill format, so skills can be moved between repos.
 
 ## Layout
 
@@ -68,4 +68,4 @@ Skills read notes only from a folder of Markdown files (see `docs/notes.md`). A 
 
 ## License
 
-Not chosen yet. Decide before the first public release, and add LICENSE, then update README.
+MIT (see LICENSE). Every new file is covered by it unless it says otherwise. The copyright holder is the neutral "reel-skills authors"; no person is named anywhere in the repo.

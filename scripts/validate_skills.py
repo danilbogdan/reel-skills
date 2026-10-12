@@ -95,7 +95,8 @@ def check_skill(folder: Path) -> list[str]:
             first = s.read_text(encoding="utf-8", errors="replace").split("\n", 1)[0]
             if not first.startswith("#!"):
                 errors.append(f"{folder.name}: scripts/{s.name} has no shebang line")
-            if "--help" not in s.read_text(encoding="utf-8", errors="replace"):
+            body_text = s.read_text(encoding="utf-8", errors="replace")
+            if "--help" not in body_text and "argparse" not in body_text:
                 errors.append(f"{folder.name}: scripts/{s.name} does not handle --help")
     return errors
 

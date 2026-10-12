@@ -15,6 +15,7 @@ On Windows, use WSL and follow the Ubuntu line.
 
 | Tool | Needed for | Install |
 |---|---|---|
+| yt-dlp | downloading a video from a link for `video-analysis` | `pip install yt-dlp` or `brew install yt-dlp` |
 | Whisper (speech-to-text) | transcripts, finding words in a clip | `pip install openai-whisper`, or whisper.cpp |
 | pandoc | converting .docx notes to Markdown | `sudo apt install pandoc` or `brew install pandoc` |
 
@@ -30,7 +31,16 @@ It prints OK or MISSING for each tool and exits non-zero if a required tool is m
 
 ## 4. Keys and accounts
 
-The base repo needs no API keys and no accounts. A skill that uses an online service says so in its "Prepare" section, and keeps the key in a `.env` file (ignored by git) or an environment variable. Never paste a key into a skill or a note.
+Only `media-search` needs keys, and only for the sources you use. Export them in your shell (or keep them in a
+`.env` file that git ignores); never paste a key into a file in this repo.
+
+| Source | Variable | Where to get it |
+|---|---|---|
+| Pixabay (images, videos) | `PIXABAY_API_KEY` | https://pixabay.com/api/docs/ |
+| Freesound (sound effects) | `FREESOUND_API_KEY` | https://freesound.org/apiv2/apply |
+| Jamendo (music) | `JAMENDO_CLIENT_ID` | https://devportal.jamendo.com/ |
+
+Every other skill needs no account.
 
 ## 5. Prepare your material
 
@@ -47,11 +57,10 @@ Use plain file names such as `take-01.mov`. Keep the originals; skills write the
 
 ## 6. Reproduce with the sample first
 
-Before using your own footage, run the sample to confirm the tools work:
-
 ```bash
-scripts/make_sample.sh
-ffprobe -v error -show_entries format=duration -of csv=p=0 samples/sample.mp4
+scripts/run_demo.sh
 ```
 
-The sample is a 10-second test pattern with a tone. It has no people and no personal content.
+It makes a 12-second synthetic clip (four scenes, a tone with pauses), then runs analysis, pause-cut, render and
+hook-lint on it. It ends with `demo ok` when everything works. The sample has no people and no personal content.
+Outputs are in `workspace/demo/` (git-ignored).

@@ -4,7 +4,7 @@ set -u
 
 if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
   echo "Usage: scripts/doctor.sh"
-  echo "Checks python3 (3.10+), ffmpeg and ffprobe (required); whisper and pandoc (optional)."
+  echo "Checks python3 (3.10+), ffmpeg and ffprobe (required); yt-dlp, whisper and pandoc (optional)."
   exit 0
 fi
 
@@ -31,7 +31,7 @@ for tool in ffmpeg ffprobe; do
   fi
 done
 
-for tool in whisper pandoc; do
+for tool in yt-dlp whisper pandoc; do
   if command -v "$tool" >/dev/null 2>&1; then
     ok "$tool (optional)"
   else
