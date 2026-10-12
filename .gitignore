@@ -1,0 +1,40 @@
+# Your material never goes into this repo
+workspace/
+notes/
+samples/
+media/
+
+# Media and documents
+*.mp4
+*.mov
+*.m4v
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.pdf
+*.docx
+
+# Secrets and local config
+.env
+.env.*
+*.env.local
+config.json
+.privacy-denylist.local
+
+# Maintainer-only material (see CONVENTIONS.md)
+docs/provenance/
+docs/reports/
+
+# Tooling
+__pycache__/
+.DS_Store
