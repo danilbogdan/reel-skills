@@ -16,11 +16,15 @@ Making a reel that works comes down to three jobs. Each has a skill (or two), an
 3. **Study three or more references.** `video-analysis` on videos and reels in your niche, then `compare`. Note the shot length and how the
    first three seconds open. Do not copy their words.
 4. **Shoot.** Two takes of the hook and the call to action; one take per point. Name files `take-01.mov`.
-5. **Cut.** `pause-cut` on each take, check the pieces, edit `cuts.json` by hand where needed.
+5. **Cut.** `pause-cut` on each take (cuts are never closer than 3 s), check the pieces, name a stumble with `--drop`, edit
+   `cuts.json` by hand where needed.
 6. **Add pictures that match the words.** `broll-index search <word>` for your own clips;
    `media-search` for stock shots, sound effects and a music bed. Only for a shot you cannot film: `videogen`.
-7. **Render.** `reel-render`, then transcribe the draft, fix the words in the `.srt`, render again with `--srt`.
+7. **Render.** `reel-render --transcribe`: voice cleaned and set to -14 LUFS, quiet captions burned in, a `check:` block
+   printed. Read `reel.srt` once; fix words and render again with `--srt` only if something is wrong.
 8. **Check before posting.** Watch it once with the sound off (captions carry it) and once with the sound on.
+
+Steps 5 and 7 in one command: `scripts/make_reel.py take.mov --out workspace/out/reel.mp4 --language ru`.
 
 ## Reproduce it on your machine
 
@@ -35,4 +39,4 @@ scripts/run_demo.sh
 ## What is deliberately not here
 
 - Motion-graphics frameworks and background removal. Useful, but heavier to set up. Start with the loop above.
-- Posting. Nothing here uploads or publishes.
+- Posting. Nothing here uploads or publishes; what it would take is in [publishing.md](publishing.md).

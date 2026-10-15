@@ -16,7 +16,8 @@ On Windows, use WSL and follow the Ubuntu line.
 | Tool | Needed for | Install |
 |---|---|---|
 | yt-dlp | downloading a video from a link for `video-analysis` | `pip install yt-dlp` or `brew install yt-dlp` |
-| Whisper (speech-to-text) | transcripts, finding words in a clip | `pip install openai-whisper`, or whisper.cpp |
+| Whisper (speech-to-text) | transcripts, finding words in a clip, automatic captions (`reel-render --transcribe` needs the `whisper` command) | `pip install openai-whisper` |
+| Inter font | the thin caption look of `reel-render` (family "Inter Light") | https://rsms.me/inter/ (OFL), or `--fonts-dir` |
 | pandoc | converting .docx notes to Markdown | `sudo apt install pandoc` or `brew install pandoc` |
 
 A skill that needs something else lists it under `requires:` in its `SKILL.md` and explains it in its "Prepare" section.
